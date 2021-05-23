@@ -15,7 +15,7 @@ mengfanhui
 
 # 用双指针，找出不等于0的放到第一位，剩余的就补充0
 class Solution:
-    def moveZeroes(self, nums: List[int]) -> None:
+    def moveZeroes(self, nums) -> None:
         """
         Do not return anything, modify nums in-place instead.
         """
