@@ -19,14 +19,18 @@ mengfanhui
 nums1 = [4,1,2]
 nums2 = [1,3,4,2]
 
-
+# 用两个栈，一个就是nums2，另一个是新创建的temp，就是nums弹一个就放倒temp一个
 def nextGreaterElement(nums1, nums2):
     res = []
     for num in nums1:
+        # max记录右边较大的数字
         max = -1
+        # 新创建的栈
         temp = []
+        # 相当于nums从尾找，直到找到了那个相同的值就选之前较大的数跳出循环
         isFound = False
         while len(nums2) != 0 and not isFound:
+            # 弹一个，temp放一个
             temp_num = nums2.pop()
             if temp_num > num:
                 max = temp_num
@@ -34,6 +38,7 @@ def nextGreaterElement(nums1, nums2):
                 isFound = True
             temp.append(temp_num)
         res.append(max)
+        # 还原，把temp的再放回nums2
         while len(temp) != 0:
             nums2.append(temp.pop())
     return res
