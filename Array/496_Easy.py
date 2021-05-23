@@ -19,3 +19,23 @@ mengfanhui
 nums1 = [4,1,2]
 nums2 = [1,3,4,2]
 
+
+def nextGreaterElement(nums1, nums2):
+    res = []
+    for num in nums1:
+        max = -1
+        temp = []
+        isFound = False
+        while len(nums2) != 0 and not isFound:
+            temp_num = nums2.pop()
+            if temp_num > num:
+                max = temp_num
+            if temp_num == num:
+                isFound = True
+            temp.append(temp_num)
+        res.append(max)
+        while len(temp) != 0:
+            nums2.append(temp.pop())
+    return res
+
+print(nextGreaterElement(nums1, nums2))
